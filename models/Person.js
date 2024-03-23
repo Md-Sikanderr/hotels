@@ -13,6 +13,14 @@ const personSchema = new mongoose.Schema({
     enum: ["chef", "waiter"],
     required: true,
   },
+  username: {
+    required: true,
+    type: String,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
 });
 
 const Person = mongoose.model("Person", personSchema);

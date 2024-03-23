@@ -12,6 +12,15 @@ const MenuItem = require("./models/MenuItem");
 
 const PORT = 5000;
 
+//middleware function to console log request
+const logRequest = (req, res, next) => {
+  console.log(
+    `[${new Date().toLocaleString()}] Request Made to: ${req.originalUrl}`
+  );
+  next();
+};
+app.use(logRequest);
+
 //Import the router files
 const personRoutes = require("./router/personRoutes");
 const menuItemRoutes = require("./router/menuItemRoutes");
